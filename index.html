@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <title>Shopping Cart</title>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet" />
+   <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+
+   <section>
+      <div class="container">
+         <div class="cart">
+            <div class="col-md-12 col-lg-10 mx-auto">
+               <div class="cart-item">
+                  <div class="row">
+                     <div class="col-md-7 center-item">
+                        <img src="images/product-1.png" alt="">
+                        <h5>iPhone 11 128GB Black</h5>
+                     </div>
+
+                     <div class="col-md-5 center-item">
+                        <div class="input-group number-spinner">
+                           <button id ="minus" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                           <input id ="quantity" type="text" class="form-control text-center nb" value="1">
+                           <button id ="plus" class="btn btn-default"><i class="fas fa-plus"></i></button>
+                        </div>
+                        <h5>$ <span id = "price">1219</span></h5>
+                        <img src="images/remove.png" alt="" class="remove-item">
+                     </div>
+                  </div>
+               </div>
+
+               <div class="cart-item">
+                  <div class="row">
+                     <div class="col-md-7 center-item mx-auto">
+                        <img src="images/product-2.png" alt="">
+                        <h5>iPhone 11 Silicone Case - Black</h5>
+                     </div>
+                     <div class="col-md-5 center-item">
+                        <div class="input-group number-spinner">
+                           <button id = "minus2" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                           <input id = "quantity2" type="text" class="form-control text-center nb" value="1">
+                           <button id = "plus2" class="btn btn-default"><i class="fas fa-plus"></i></button>
+
+                        </div>
+                        <h5>$ <span id="price2">59</span></h5>
+                        <img src="images/remove.png" alt="" class="remove-item">
+                     </div>
+                  </div>
+               </div>
+
+               <div class="cart-item">
+                  <div class="row">
+
+                     <div class="col-md-8">
+                        <h5>Subtotal: </h5>
+                        <h5>Tax:</h5>
+                        <h5>Total:</h5>
+                     </div>
+
+                     <div class="col-md-4 status">
+                        <h5>$1,278</h5>
+                        <h5>$0</h5>
+                        <h5>$1,278</h5>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-12 pt-4 pb-4">
+                  <button type="button" class="btn btn-success check-out">Check Out</button>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+
+   <script>
+      const plus = document.getElementById("plus");
+      plus.addEventListener("click", function(){
+         let quantity = document.getElementById("quantity").value;
+         quantityNumber = parseFloat(quantity);
+         quantityCalculate = quantityNumber + 1;
+         document.getElementById("quantity").value = quantityCalculate;
+      })
+
+       const minus = document.getElementById("minus");
+       minus.addEventListener("click", function(){
+         let quantity = document.getElementById("quantity").value;
+         quantityNumber = parseFloat(quantity);
+         quantityCalculate = quantityNumber - 1;
+         document.getElementById("quantity").value = quantityCalculate;
+      })
+
+      //phoneCase amount
+      const plus2 = document.getElementById("plus2");
+      plus2.addEventListener("click", function(){
+         let quantity2 = document.getElementById("quantity2").value;
+         quantityNumber2 = parseFloat(quantity2);
+         quantityCalculate2 = quantityNumber2 + 1;
+         document.getElementById("quantity2").value = quantityCalculate2;
+      })
+
+       const minus2 = document.getElementById("minus2");
+         minus2.addEventListener("click", function(){
+         let quantity2 = document.getElementById("quantity2").value;
+         quantityNumber2 = parseFloat(quantity2);
+         quantityCalculate2 = quantityNumber2 - 1;
+         document.getElementById("quantity2").value = quantityCalculate2;
+      })
+
+      //phone price adding
+      const price = document.getElementById("plus");
+      price.addEventListener("click", function(){
+         let currentPrice = 1219;
+         let quantity =  document.getElementById("quantity").value;
+         quantityNumber = parseFloat(quantity);
+         updatePrice = quantityNumber * currentPrice; 
+        
+         document.getElementById("price").innerText = updatePrice;
+      })
+      //phone price subtract
+      const priceNegative = document.getElementById("minus");
+      priceNegative.addEventListener("click", function(){
+         let currentPrice = 1219;
+         let quantity =  document.getElementById("quantity").value;
+         quantityNumber = parseFloat(quantity);
+         calculatePrice = (quantityNumber * currentPrice) * -1;
+         let updatePrice = Math.abs(calculatePrice);
+        
+         document.getElementById("price").innerText = updatePrice;
+      })
+
+      //case price adding
+      const price2 = document.getElementById("plus2");
+      price2.addEventListener("click", function(){
+         let currentPrice2 = 59;
+         let quantity2 =  document.getElementById("quantity2").value;
+         quantityNumber2 = parseFloat(quantity2);
+         updatePrice2 = quantityNumber2 * currentPrice2; 
+        
+         document.getElementById("price2").innerText = updatePrice2;
+      })
+      //case price subtract
+      const priceNegative2 = document.getElementById("minus2");
+      priceNegative2.addEventListener("click", function(){
+         let currentPrice2 = 59;
+         let quantity2 =  document.getElementById("quantity").value;
+         quantityNumber2 = parseFloat(quantity2);
+         calculatePrice2 = (quantityNumber2 * currentPrice2) * -1;
+         let updatePrice2 = Math.abs(calculatePrice2);
+        
+         document.getElementById("price2").innerText = updatePrice2;
+      })
+   </script>
+</body>
+
+</html>
